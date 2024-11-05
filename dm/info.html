@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>COVID-19 Information</title>
+        <style>
+            /* Common Styles */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                font-family: Arial, sans-serif;
+                background-color: #fff;
+            }
+
+            .container,
+            .info-container {
+                text-align: center;
+            }
+
+            .virus-icon {
+                width: 100px;
+                margin-bottom: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+                font-weight: bold;
+                color: #000;
+            }
+
+            h2 {
+                font-size: 1em;
+                color: #555;
+                margin-bottom: 30px;
+            }
+
+            .button-container {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            button,
+            .button,
+            .back-button {
+                background-color: #ff4d4d;
+                color: white;
+                font-size: 1.2em;
+                font-weight: bold;
+                border: none;
+                border-radius: 10px;
+                padding: 15px 30px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+                text-decoration: none;
+                display: inline-block;
+            }
+
+            button:hover,
+            .button:hover,
+            .back-button:hover {
+                background-color: #ff3333;
+            }
+
+            /* Styles for Information Page */
+            .info-container {
+                background-color: #e0e0e0;
+                padding: 20px;
+                width: 80%;
+                max-width: 600px;
+                border-radius: 15px;
+            }
+
+            .info-content {
+                text-align: left;
+                font-size: 1em;
+                line-height: 1.5;
+                color: #333;
+                margin-bottom: 30px;
+            }
+
+            .info-content p {
+                margin-bottom: 10px;
+            }
+
+            .info-content ul {
+                list-style-type: circle;
+                margin-left: 20px;
+                margin-bottom: 10px;
+            }
+
+            .back-button {
+                margin-top: 20px;
+                width: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="info-container">
+            <h1>Information</h1>
+            <div class="info-content">
+                <p>
+                    Coronavirus symptoms can vary widely, ranging from mild to
+                    severe. Generally, COVID-19 symptoms may appear 2-14 days
+                    after exposure and include:
+                </p>
+                <p><strong>1. Common Symptoms:</strong></p>
+                <ul>
+                    <li>Fever or chills</li>
+                    <li>Cough</li>
+                    <li>Shortness of breath or difficulty breathing</li>
+                    <li>Fatigue</li>
+                    <li>Muscle or body aches</li>
+                    <li>Headache</li>
+                    <li>New loss of taste or smell</li>
+                    <li>Sore throat</li>
+                    <li>Congestion or runny nose</li>
+                    <li>Nausea or vomiting</li>
+                    <li>Diarrhea</li>
+                </ul>
+                <p>
+                    <strong
+                        >2. Severe Symptoms (medical attention needed):</strong
+                    >
+                </p>
+                <ul>
+                    <li>Difficulty breathing</li>
+                    <li>Persistent chest pain or pressure</li>
+                    <li>Confusion or inability to stay awake</li>
+                    <li>Bluish lips or face</li>
+                </ul>
+                <p>
+                    Long COVID is a condition where some people experience
+                    lingering symptoms for weeks or months after the initial
+                    infection. Common long COVID symptoms include fatigue,
+                    shortness of breath, brain fog, and joint or muscle pain.
+                </p>
+            </div>
+            <a href="index.html" class="back-button">Back</a>
+        </div>
+    </body>
+</html>

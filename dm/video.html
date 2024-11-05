@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Video</title>
+        <style>
+            /* Common Styles */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                font-family: Arial, sans-serif;
+                background-color: #fff;
+            }
+
+            .container,
+            .info-container {
+                text-align: center;
+            }
+
+            .virus-icon {
+                width: 100px;
+                margin-bottom: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+                font-weight: bold;
+                color: #000;
+            }
+
+            h2 {
+                font-size: 1em;
+                color: #555;
+                margin-bottom: 30px;
+            }
+
+            .button-container {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .button,
+            .back-button {
+                background-color: #ff4d4d;
+                color: white;
+                font-size: 1.2em;
+                font-weight: bold;
+                border: none;
+                border-radius: 10px;
+                padding: 15px 30px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+                text-decoration: none;
+                display: inline-block;
+            }
+
+            .button:hover,
+            .back-button:hover {
+                background-color: #ff3333;
+            }
+
+            /* Video Page Styles */
+            .info-container {
+                background-color: #e0e0e0;
+                padding: 20px;
+                width: 80%;
+                max-width: 600px;
+                border-radius: 15px;
+            }
+
+            .video-container {
+                position: relative;
+                width: 100%;
+                max-width: 600px;
+                margin: 20px auto;
+                background-color: #000;
+                aspect-ratio: 16 / 9;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .video-element {
+                display: none;
+                width: 100%;
+                height: 100%;
+            }
+
+            .video-overlay {
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+            }
+
+            .play-button {
+                width: 80px;
+                cursor: pointer;
+            }
+
+            .controls {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin-top: 10px;
+            }
+
+            .control-button {
+                background-color: #ff4d4d;
+                color: white;
+                border: none;
+                padding: 8px 12px;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            .control-button:hover {
+                background-color: #ff3333;
+            }
+
+            #volume-slider {
+                width: 100px;
+            }
+        </style>
+        <script>
+            // Function to play video (from earlier)
+            function playVideo() {
+                const video = document.getElementById("video");
+                const overlay = document.querySelector(".video-overlay");
+
+                overlay.style.display = "none";
+                video.style.display = "block";
+                video.play();
+            }
+
+            // Function to toggle full-screen mode for the video only
+            function toggleFullScreen() {
+                const video = document.getElementById("video");
+
+                if (!document.fullscreenElement) {
+                    // Request full screen for the video element only
+                    if (video.requestFullscreen) {
+                        video.requestFullscreen();
+                    } else if (video.mozRequestFullScreen) {
+                        // Firefox
+                        video.mozRequestFullScreen();
+                    } else if (video.webkitRequestFullscreen) {
+                        // Chrome, Safari, Opera
+                        video.webkitRequestFullscreen();
+                    } else if (video.msRequestFullscreen) {
+                        // IE/Edge
+                        video.msRequestFullscreen();
+                    }
+                } else {
+                    // Exit full screen if already in full screen
+                    if (document.exitFullscreen) {
+                        document.exitFullscreen();
+                    } else if (document.mozCancelFullScreen) {
+                        // Firefox
+                        document.mozCancelFullScreen();
+                    } else if (document.webkitExitFullscreen) {
+                        // Chrome, Safari, Opera
+                        document.webkitExitFullscreen();
+                    } else if (document.msExitFullscreen) {
+                        // IE/Edge
+                        document.msExitFullscreen();
+                    }
+                }
+            }
+
+            // Function to change video volume
+            function changeVolume(volume) {
+                const video = document.getElementById("video");
+                video.volume = volume;
+            }
+        </script>
+    </head>
+    <body>
+        <div class="info-container">
+            <h1>Video</h1>
+            <div class="video-container">
+                <div class="video-overlay">
+                    <img
+                        src="play-button.png"
+                        alt="Play Button"
+                        class="play-button"
+                        onclick="playVideo()"
+                    />
+                </div>
+                <video
+                    id="video"
+                    src="video/video.mp4"
+                    class="video-element"
+                    controls
+                ></video>
+            </div>
+
+            <!-- Full-Screen and Volume Controls -->
+            <div class="controls">
+                <button onclick="toggleFullScreen()" class="control-button">
+                    Full Screen
+                </button>
+                <label for="volume-slider">Volume:</label>
+                <input
+                    type="range"
+                    id="volume-slider"
+                    min="0"
+                    max="1"
+                    step="0.1"
+                    value="1"
+                    onchange="changeVolume(this.value)"
+                />
+            </div>
+
+            <a href="index.html" class="back-button">Back</a>
+        </div>
+    </body>
+</html>

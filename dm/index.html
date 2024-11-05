@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Coronavirus Symptoms</title>
+        <style>
+            /* Reset some basic styles */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            audio {
+                /* display: none; Hide the audio element */
+            }
+
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                font-family: Arial, sans-serif;
+                /* background-color: #fff; */
+                background-image: linear-gradient(
+                        rgba(4, 9, 30, 0.7),
+                        rgba(4, 9, 30, 0.7)
+                    ),
+                    url(img/corona.gif);
+                background-position: center;
+                background-size: cover;
+            }
+
+            .container {
+                text-align: center;
+            }
+
+            .virus-icon {
+                width: 100px;
+                margin-bottom: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+                font-weight: bold;
+                color: #fff;
+            }
+
+            h2 {
+                font-size: 1em;
+                color: #8b8b8b;
+                margin-bottom: 30px;
+            }
+
+            .button-container {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            button {
+                background-color: #ff4d4d;
+                color: white;
+                font-size: 1.2em;
+                font-weight: bold;
+                border: none;
+                border-radius: 10px;
+                padding: 15px 30px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+
+            button:hover {
+                background-color: #ff3333;
+            }
+        </style>
+    </head>
+    <body>
+        <audio id="background-audio" src="audio/background.mp3"></audio>
+        <div class="container">
+            <img
+                src="img/virus1.png"
+                alt="Coronavirus Icon"
+                class="virus-icon"
+            />
+            <h1>Coronavirus</h1>
+            <h2>Symptoms</h2>
+
+            <div class="button-container">
+                <a href="info.html" class="button-container">
+                    <button>Information</button>
+                </a>
+                <a href="video.html" class="button-container">
+                    <button>Video</button>
+                </a>
+                <a href="team.html" class="button-container">
+                    <button>Team</button>
+                </a>
+            </div>
+        </div>
+        <script>
+            // Function to play video (as defined earlier)
+            function playVideo() {
+                const video = document.getElementById("video");
+                const overlay = document.querySelector(".video-overlay");
+
+                overlay.style.display = "none";
+                video.style.display = "block";
+                video.play();
+            }
+
+            // Background audio control
+            document.addEventListener("DOMContentLoaded", () => {
+                const backgroundAudio =
+                    document.getElementById("background-audio");
+
+                if (backgroundAudio) {
+                    backgroundAudio.loop = true; // Enable looping
+                    backgroundAudio.play().catch((error) => {
+                        console.warn(
+                            "Autoplay might be restricted by the browser. User interaction may be required.",
+                        );
+                    });
+                }
+            });
+        </script>
+    </body>
+</html>
