@@ -1,4 +1,4 @@
-﻿# Digital Multimedia [Proejct 2]
+﻿# Digital Multimedia [Project 2]
 
 A tutorial how to see the project done and the file that make this thing work.
 
